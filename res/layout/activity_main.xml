@@ -1,0 +1,29 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/btn_table"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="use cityid.db" />
+    <Button 
+        android:id="@+id/btn_castedtable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="use city.s3db"/>
+    <TextView 
+        android:id="@+id/tv_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:hint="请输入城市名（例如：北京）"/>
+    <ListView 
+        android:id="@+id/list_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        ></ListView>
+
+</LinearLayout>
