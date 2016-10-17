@@ -1,9 +1,12 @@
 package com.example.customcitydatabase;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -13,6 +16,9 @@ public class MainActivity extends Activity {
     private Button btnCastedTable;
     private TextView tvText;
     private ListView listContent;
+    private ArrayAdapter<String> adapter;
+    private ArrayList<String> areaData;
+    private DBHelper dbHelper;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -21,6 +27,10 @@ public class MainActivity extends Activity {
 		btnCastedTable=(Button)findViewById(R.id.btn_castedtable);
 		tvText=(TextView)findViewById(R.id.tv_text);
 		listContent=(ListView)findViewById(R.id.list_content);
+		dbHelper=new DBHelper(this);
+		areaData=dbHelper.getCityArea();
+		adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,areaData);
+		listContent.setAdapter(adapter);
 	}
 
 	@Override
