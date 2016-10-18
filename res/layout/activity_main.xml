@@ -14,12 +14,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="use city.s3db"/>
-    <TextView 
-        android:id="@+id/tv_text"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:singleLine="true"
-        android:hint="请输入城市名（例如：北京）"/>
+        android:orientation="horizontal">
+        <EditText 
+	        android:id="@+id/et_text"
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:singleLine="true"
+	        android:hint="请输入城市名（例如：北京）"/>
+        <ImageView 
+            android:id="@+id/img_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/delete"
+            android:visibility="gone"/>
+       </LinearLayout>
+    
     <ListView 
         android:id="@+id/list_content"
         android:layout_width="match_parent"

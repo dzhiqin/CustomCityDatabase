@@ -19,10 +19,10 @@ import android.util.Log;
 public class DBManager {
 	private Context context;
 	private SQLiteDatabase database;
-	public static final String DB_NAME="cityid.db";
-	public static final String PACKAGE_NAME="com.example.customcitydatabase";
+	public static final String DB_NAME="cityid.db";//数据库名称
+	public static final String PACKAGE_NAME="com.example.customcitydatabase";//包名
 	public static final String DB_PATH="/data"+Environment.getDataDirectory().getAbsolutePath()
-			+"/"+PACKAGE_NAME;
+			+"/"+PACKAGE_NAME;//数据库在手机里的路径，还没包含名称
 	public DBManager(Context context) {
 		this.context=context;
 	}
@@ -30,10 +30,11 @@ public class DBManager {
 		return this.database;
 	}
 	public void openDatabase(){
-		String dbFile=DB_PATH+DB_NAME;
+		String dbFile=DB_PATH+"/"+DB_NAME;//数据库完整路径
 		try{
-			if(!new File(dbFile).exists()){
+			if(!new File(dbFile).exists()){//打开dbFile文件，如果不存在，就执行导入
 				InputStream in=context.getResources().openRawResource(R.raw.cityid);
+				//数据库文件放在工程项目的res/raw文件夹下
 				FileOutputStream fos=new FileOutputStream(dbFile);
 				byte[] buffer=new byte[1024];
 				int count=0;
